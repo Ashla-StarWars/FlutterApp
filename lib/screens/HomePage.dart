@@ -1,39 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/CityDetailPage.dart';
 import 'package:flutter_app/utils/Constants.dart';
 
 class HomePage extends StatelessWidget {
   final String username;
 
-  HomePage({required this.username});
-
-  void _openCityDetails(BuildContext context, Map<String, String> city) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => CityDetailPage(city: city),
-      ),
-    );
-  }
+  const HomePage({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-
       appBar: AppBar(
         title: Text('Bienvenid@, $username!'),
         backgroundColor: Theme.of(context).colorScheme.surface,
       ),
-
       drawer: Drawer(
         backgroundColor: Theme.of(context).colorScheme.surface,
         child: Column(
           children: [
-
             DrawerHeader(
-              child: Icon(Icons.shopify, size: 80,color: Theme.of(context).colorScheme.onSurface,)
-            ),
+                child: Icon(
+              Icons.shopify,
+              size: 80,
+              color: Theme.of(context).colorScheme.onSurface,
+            )),
 
             //HOME PAGE LIST TILE
             ListTile(
@@ -69,11 +59,9 @@ class HomePage extends StatelessWidget {
                 // DO TAP
               },
             ),
-
           ],
         ),
       ),
-
       body: ListView.builder(
         itemCount: Constants().cities.length,
         itemBuilder: (context, index) {
@@ -86,8 +74,7 @@ class HomePage extends StatelessWidget {
                 leading: Hero(
                   tag: Constants().cities[index]['image']!,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(
-                        100), // Cambia el valor para ajustar el redondeo
+                    borderRadius: BorderRadius.circular(100),
                     child: Image.network(
                       Constants().cities[index]['image']!,
                       width: 50,
@@ -99,8 +86,13 @@ class HomePage extends StatelessWidget {
                 title: Text(Constants().cities[index]['name']!),
                 subtitle: Text(
                     'Población: ${Constants().cities[index]['population']}'),
-                onTap: () =>
-                    _openCityDetails(context, Constants().cities[index]),
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/citydetailpage',
+                    arguments: Constants().cities[index],
+                  );
+                },
               ),
             ),
           );

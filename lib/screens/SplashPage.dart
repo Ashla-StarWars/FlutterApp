@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/LoginPage.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }
@@ -12,7 +13,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     // Retraso de 2 segundos antes de navegar a la pantalla de login
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushNamed(context, 'loginpage');
+      Navigator.pushNamed(context, '/loginpage');
     });
   }
 

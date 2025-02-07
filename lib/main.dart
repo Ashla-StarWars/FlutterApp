@@ -4,7 +4,6 @@ import 'package:flutter_app/screens/HomePage.dart';
 import 'package:flutter_app/screens/LoginPage.dart';
 import 'package:flutter_app/screens/SplashPage.dart';
 import 'package:flutter_app/theme/theme.dart';
-import 'package:flutter_app/utils/Constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,10 +17,22 @@ class MyApp extends StatelessWidget {
       theme: lightMode,
       darkTheme: darkMode,
       home: SplashPage(),
-      routes: {
-        'loginpage': (context) => LoginPage(),
-        'homepage': (context) => HomePage(username: "username"),
-        'citydetailpage': (context) => CityDetailPage(city: Constants().cities.first)
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/loginpage':
+            return MaterialPageRoute(builder: (context) => LoginPage());
+
+          case '/homepage':
+            final username = settings.arguments as String;
+            return MaterialPageRoute(builder: (context) => HomePage(username: username));
+
+          case '/citydetailpage':
+            final city = settings.arguments as Map<String, String>;
+            return MaterialPageRoute(builder: (context) => CityDetailPage(city));
+
+          default:
+            return MaterialPageRoute(builder: (context) => SplashPage());
+        }
       },
     );
   }

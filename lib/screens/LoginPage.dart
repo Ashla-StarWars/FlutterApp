@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,12 +17,10 @@ class _LoginPageState extends State<LoginPage> {
         if (_usernameController.text == 'user' &&
             _passwordController.text == 'pass12345') {
           _errorMessage = null;
-          Navigator.push(
+          Navigator.pushNamed(
             context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  HomePage(username: _usernameController.text),
-            ),
+            '/homepage',
+            arguments: _usernameController.text,
           );
         } else {
           _errorMessage = 'Credenciales incorrectas';
