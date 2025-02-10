@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 
           case '/citydetailpage':
             final city = settings.arguments as Map<String, String>;
-            return MaterialPageRoute(builder: (context) => CityDetailPage(city));
+            return MaterialPageRoute(builder: (context) => CityDetailPage(city: city));
 
           default:
             return MaterialPageRoute(builder: (context) => SplashPage());

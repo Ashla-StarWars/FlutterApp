@@ -1,5 +1,4 @@
-final class Constants {
-  final List<Map<String, String>> cities = [
+List<Map<String, String>> cities = [
     {
       'name': 'Barcelona',
       'population': '1,620,000',
@@ -97,4 +96,4 @@ final class Constants {
           'https://upload.wikimedia.org/wikipedia/commons/0/0c/1_toledo_spain_evening_sunset_2014.jpg'
     },
   ];
-}
+

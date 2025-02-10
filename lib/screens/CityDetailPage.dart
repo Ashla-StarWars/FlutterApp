@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/utils/Globals.dart';
 
 class CityDetailPage extends StatelessWidget {
   final Map<String, String> city;
-  const CityDetailPage(this.city, {super.key});
+  const CityDetailPage({super.key, required this.city});
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
@@ -51,16 +51,15 @@ class CityDetailPage extends StatelessWidget {
                               onPressed: () {
                                 // Cerrar el diálogo sin hacer nada
                                 Navigator.of(context).pop();
+                                
                               },
                               child: Text("Cancelar"),
                             ),
                             TextButton(
                               onPressed: () {
-                                // Lógica de eliminación aquí
-                                Navigator.of(context)
-                                    .pop(); // Cerrar el diálogo
-                                // Agregar el código para eliminar la ciudad
-                              },
+                                cities.remove(city);
+                                Navigator.of(context).pop();
+                                Navigator.of(context).pop(true);                               },
                               child: Text("Eliminar",
                                   style: TextStyle(color: Colors.red)),
                             ),
@@ -70,10 +69,9 @@ class CityDetailPage extends StatelessWidget {
                     );
                   },
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          Theme.of(context)
-                              .colorScheme
-                              .primary) // Aquí está la corrección
+                      backgroundColor: MaterialStateProperty.all(Theme.of(context)
+                          .colorScheme
+                          .primary) // Aquí está la corrección
                       ),
                   child: Icon(Icons.delete, size: 24, color: Colors.red),
                 ),

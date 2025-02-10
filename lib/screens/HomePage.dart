@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/utils/Constants.dart';
+import 'package:flutter_app/utils/Globals.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   final String username;
 
   const HomePage({super.key, required this.username});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: Text('Bienvenid@, $username!'),
+        title: Text('Bienvenid@, ${widget.username}!'),
         backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       drawer: Drawer(
@@ -63,7 +68,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
-        itemCount: Constants().cities.length,
+        itemCount: cities.length,
         itemBuilder: (context, index) {
           return Container(
             color: Theme.of(context).colorScheme.surface,
@@ -71,29 +76,32 @@ class HomePage extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
               margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               child: ListTile(
-                leading: Hero(
-                  tag: Constants().cities[index]['image']!,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(
-                      Constants().cities[index]['image']!,
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.cover,
+                  leading: Hero(
+                    tag: cities[index]['image']!,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.network(
+                        cities[index]['image']!,
+                        width: 50,
+                        height: 50,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                title: Text(Constants().cities[index]['name']!),
-                subtitle: Text(
-                    'Población: ${Constants().cities[index]['population']}'),
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/citydetailpage',
-                    arguments: Constants().cities[index],
-                  );
-                },
-              ),
+                  title: Text(cities[index]['name']!),
+                  subtitle: Text('Población: ${cities[index]['population']}'),
+                  onTap: () async {
+                    final result = await Navigator.pushNamed(
+                      context,
+                      '/citydetailpage',
+                      arguments: cities[index],
+                    );
+
+                    if (result == true) {
+                      setState(
+                          () {}); // Recargar la lista si se eliminó una ciudad
+                    }
+                  }),
             ),
           );
         },
