@@ -99,8 +99,7 @@ class _HomePageState extends State<HomePage> {
                     );
 
                     if (result == true) {
-                      setState(
-                          () {}); // Recargar la lista si se eliminó una ciudad
+                      setState(() {}); // Recargar la lista si se eliminó una ciudad
                     }
                   }),
             ),

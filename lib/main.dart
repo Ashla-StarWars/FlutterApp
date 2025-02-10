@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/navigation/app_routes.dart';
 import 'package:flutter_app/navigation/routes.dart';
-import 'package:flutter_app/screens/CityDetailPage.dart';
-import 'package:flutter_app/screens/HomePage.dart';
-import 'package:flutter_app/screens/LoginPage.dart';
-import 'package:flutter_app/screens/SplashPage.dart';
 import 'package:flutter_app/theme/theme.dart';
 
 void main() {
@@ -12,6 +8,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
