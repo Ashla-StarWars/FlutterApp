@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/navigation/app_routes.dart';
+import 'package:flutter_app/navigation/routes.dart';
 import 'package:flutter_app/screens/CityDetailPage.dart';
 import 'package:flutter_app/screens/HomePage.dart';
 import 'package:flutter_app/screens/LoginPage.dart';
@@ -16,24 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: lightMode,
       darkTheme: darkMode,
-      home: SplashPage(),
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case '/loginpage':
-            return MaterialPageRoute(builder: (context) => LoginPage());
-
-          case '/homepage':
-            final username = settings.arguments as String;
-            return MaterialPageRoute(builder: (context) => HomePage(username: username));
-
-          case '/citydetailpage':
-            final city = settings.arguments as Map<String, String>;
-            return MaterialPageRoute(builder: (context) => CityDetailPage(city: city));
-
-          default:
-            return MaterialPageRoute(builder: (context) => SplashPage());
-        }
-      },
+      routes: appRoutes,
+      initialRoute: Routes.splash,
     );
   }
 }

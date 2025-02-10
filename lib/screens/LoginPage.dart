@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/navigation/routes.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,9 +18,9 @@ class _LoginPageState extends State<LoginPage> {
         if (_usernameController.text == 'user' &&
             _passwordController.text == 'pass12345') {
           _errorMessage = null;
-          Navigator.pushNamed(
+          Navigator.pushReplacementNamed(
             context,
-            '/homepage',
+            Routes.home,
             arguments: _usernameController.text,
           );
         } else {

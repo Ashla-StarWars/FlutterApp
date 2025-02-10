@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/navigation/routes.dart';
 import 'package:flutter_app/utils/Globals.dart';
 
 class HomePage extends StatefulWidget {
@@ -93,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () async {
                     final result = await Navigator.pushNamed(
                       context,
-                      '/citydetailpage',
+                      Routes.city,
                       arguments: cities[index],
                     );
 
