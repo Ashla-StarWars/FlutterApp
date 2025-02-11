@@ -13,8 +13,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     // Retraso de 2 segundos antes de navegar a la pantalla de login
-    Future.delayed(Duration(seconds: 2), () {
-      Navigator.pop;
+    Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacementNamed(context, Routes.login);
     });
   }
@@ -22,14 +21,29 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface, // Cambia el fondo según tu diseño
+      backgroundColor: Theme.of(context).colorScheme.surface, // Fondo dinámico
       body: Center(
-        child: Hero(
-          tag: 'appLogo',
-          child: Image.network(
-            'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png',
-            fit: BoxFit.cover, color: Theme.of(context).colorScheme.onSurface,
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Spacer(),
+            Hero(
+              tag: 'appLogo',
+              child: Image.network(
+                'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png',
+                height: 100,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
+            const SizedBox(height: 40), // Espaciado entre el logo y el texto
+            const Text(
+              'All is a widget',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const Spacer(),
+            const CircularProgressIndicator(),
+            const SizedBox(height: 10),
+          ],
         ),
       ),
     );
