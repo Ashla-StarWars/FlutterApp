@@ -44,15 +44,16 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true, // Evita que el teclado tape los widgets
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
+      body: Center(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 200),
+              SizedBox(height: 80), // Ajuste para centrar mejor
               Hero(
                 tag: 'appLogo',
                 child: Image.network(
@@ -61,64 +62,75 @@ class _LoginPageState extends State<LoginPage> {
                   color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
-              SizedBox(height: 4),
-              Spacer(),
-              TextFormField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                  labelText: 'Usuario',
-                  border: OutlineInputBorder(),
+              SizedBox(height: 24), // Más espacio entre logo y formulario
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: _usernameController,
+                      decoration: InputDecoration(
+                        labelText: 'Usuario',
+                        border: OutlineInputBorder(),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'El usuario no puede estar vacío';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 12),
+                    TextFormField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Contraseña',
+                        border: OutlineInputBorder(),
+                      ),
+                      validator: _validatePassword,
+                    ),
+                    SizedBox(height: 12),
+                    if (_errorMessage != null)
+                      Text(
+                        _errorMessage!,
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text('Forgot Password?'),
+                      ),
+                    ),
+                    SizedBox(height: 12),
+                    ElevatedButton(
+                      onPressed: _login,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                      ),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text('New User? Create Account'),
+                    ),
+                    SizedBox(
+                        height: MediaQuery.of(context).viewInsets.bottom +
+                            20), // Espacio dinámico para el teclado
+                  ],
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'El usuario no puede estar vacío';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 8),
-              TextFormField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Contraseña',
-                  border: OutlineInputBorder(),
-                ),
-                validator: _validatePassword,
-              ),
-              SizedBox(height: 4),
-              if (_errorMessage != null)
-                Text(
-                  _errorMessage!,
-                  style: TextStyle(color: Colors.red),
-                ),
-              TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.blue,
-                ),
-                child: Text('Forgot Password?'),
-              ),
-              SizedBox(height: 4),
-              ElevatedButton(
-                onPressed: _login,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                ),
-                child: Text(
-                  'Login',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Spacer(),
-              GestureDetector(
-                onTap: () {},
-                child: Text('New User? Create Account'),
               ),
             ],
           ),

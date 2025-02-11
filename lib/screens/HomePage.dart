@@ -97,7 +97,6 @@ class _HomePageState extends State<HomePage> {
                       Routes.city,
                       arguments: cities[index],
                     );
-
                     if (result == true) {
                       setState(() {}); // Recargar la lista si se eliminó una ciudad
                     }
