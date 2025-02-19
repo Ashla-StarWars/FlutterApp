@@ -49,9 +49,7 @@ class CityDetailPage extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
-                                // Cerrar el diálogo sin hacer nada
                                 Navigator.of(context).pop();
-                                
                               },
                               child: Text("Cancelar"),
                             ),
@@ -59,7 +57,8 @@ class CityDetailPage extends StatelessWidget {
                               onPressed: () {
                                 cities.remove(city);
                                 Navigator.of(context).pop();
-                                Navigator.of(context).pop(true);                               },
+                                Navigator.of(context).pop(true);
+                              },
                               child: Text("Eliminar",
                                   style: TextStyle(color: Colors.red)),
                             ),
@@ -69,19 +68,24 @@ class CityDetailPage extends StatelessWidget {
                     );
                   },
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Theme.of(context)
-                          .colorScheme
-                          .primary) // Aquí está la corrección
+                      backgroundColor: WidgetStateProperty.all(
+                          Theme.of(context)
+                              .colorScheme
+                              .primary)
                       ),
                   child: Icon(Icons.delete, size: 24, color: Colors.red),
                 ),
               ],
             ),
             SizedBox(height: 10),
-            Text(
-              city['description']!,
-              style: TextStyle(fontSize: 16),
-            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Text(
+                  city['description']!,
+                  style: const TextStyle(fontSize: 16),
+                ),
+              ),
+            )
           ],
         ),
       ),

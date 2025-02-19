@@ -1,0 +1,22 @@
+{
+    "@@locale": "es",
+    "slogan": "Todo és un widget",
+
+    "login_user": "Usuario",
+    "login_password": "Contraseña",
+    "login_button": "Iniciar sesión",
+    "login_error": "Usuario o contraseña incorrectos",
+    "login_new_user_label": "Nuevo Usuario? Crea una cuenta",
+    "login_forgot_password": "Olvidaste tu contraseña?",
+    "login_password_short_error": "La contraseña debe tener al menos 6 caracteres",
+    "login_password_empty_error": "La contraseña no puede estar vacía",
+    "login_user_empty_error": "El usuario no puede estar vacío",
+    "login_invalid_credentials": "Credenciales incorrectas",
+
+    "welcome_title": "Bienvenido",
+
+    "confirm_delete_city_title" : "Confirmar eliminación",
+    "confirm_delete_city_message" : "¿Estás seguro de que deseas eliminar esta ciudad?",
+    "confirm_delete_city_yes" : "Eliminar",
+    "confirm_delete_city_no" : "Cancelar",
+}

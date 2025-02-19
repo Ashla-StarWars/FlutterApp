@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/navigation/routes.dart';
+import 'package:flutter_gen/gen_l10n/app_local.dart';
+
+
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -20,6 +23,9 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final texts = AppLocalizations.of(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface, // Fondo dinámico
       body: Center(
@@ -36,9 +42,9 @@ class _SplashPageState extends State<SplashPage> {
               ),
             ),
             const SizedBox(height: 40), // Espaciado entre el logo y el texto
-            const Text(
-              'All is a widget',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Text(
+              texts!.slogan,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const Spacer(),
             const CircularProgressIndicator(),
