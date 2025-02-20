@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/Globals.dart';
+import 'package:flutter_gen/gen_l10n/app_local.dart';
 
 class CityDetailPage extends StatelessWidget {
   final Map<String, String> city;
   const CityDetailPage({super.key, required this.city});
   @override
   Widget build(BuildContext context) {
+
+    final texts = AppLocalizations.of(context);
+    
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
@@ -43,15 +47,15 @@ class CityDetailPage extends StatelessWidget {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text("Confirmar eliminación"),
+                          title: Text(texts!.confirm_delete_city_title),
                           content: Text(
-                              "¿Estás seguro de que quieres eliminar esta ciudad?"),
+                              texts.confirm_delete_city_message),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Text("Cancelar"),
+                              child: Text(texts.confirm_delete_city_no),
                             ),
                             TextButton(
                               onPressed: () {
@@ -59,7 +63,7 @@ class CityDetailPage extends StatelessWidget {
                                 Navigator.of(context).pop();
                                 Navigator.of(context).pop(true);
                               },
-                              child: Text("Eliminar",
+                              child: Text(texts.confirm_delete_city_no,
                                   style: TextStyle(color: Colors.red)),
                             ),
                           ],

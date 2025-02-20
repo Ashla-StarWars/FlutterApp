@@ -1,4 +1,35 @@
 {
     "@@locale": "en",
-    "slogan": "Everything is a widget"
+    "slogan": "Everything is a widget",
+
+    "login_user": "User",
+    "login_password": "Password",
+    "login_button": "Log in",
+    "login_error": "Incorrect username or password",
+    "login_new_user_label": "New user? Create an account",
+    "login_forgot_password": "Forgot your password?",
+    "login_password_short_error": "Password must be at least 6 characters long",
+    "login_password_empty_error": "Password cannot be empty",
+    "login_user_empty_error": "Username cannot be empty",
+    "login_invalid_credentials": "Invalid credentials",
+
+    "welcome_title": "Welcome",
+
+    "confirm_delete_city_title": "Confirm deletion",
+    "confirm_delete_city_message": "Are you sure you want to delete this city?",
+    "confirm_delete_city_yes": "Delete",
+    "confirm_delete_city_no": "Cancel",
+
+    "drawer_settings" : "S E T T I N G S",
+    "drawer_home" : "H O M E",
+    "drawer_about" : "A B O U T",
+    "drawer_logout" : "L O G   O U T",
+    "drawer_language" : "L A N G U A G E",
+    "drawer_theme" : "T H E M E",
+
+    "logout_confirmation_title": "Log out",
+    "logout_confirmation_message": "Are you sure you want to log out?",
+    "logout_confirmation_yes": "Yes",
+    "logout_confirmation_no": "No"
+    
 }

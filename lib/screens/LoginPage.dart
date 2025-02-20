@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/navigation/routes.dart';
+import 'package:flutter_gen/gen_l10n/app_local.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -43,6 +44,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final texts = AppLocalizations.of(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: true, // Evita que el teclado tape los widgets
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -70,12 +74,12 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       controller: _usernameController,
                       decoration: InputDecoration(
-                        labelText: 'Usuario',
+                        labelText: texts!.login_user,
                         border: OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'El usuario no puede estar vacío';
+                          return texts.login_user_empty_error;
                         }
                         return null;
                       },
@@ -85,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                        labelText: 'Contraseña',
+                        labelText: texts.login_password,
                         border: OutlineInputBorder(),
                       ),
                       validator: _validatePassword,
@@ -100,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {},
-                        child: Text('Forgot Password?'),
+                        child: Text(texts.login_forgot_password),
                       ),
                     ),
                     SizedBox(height: 12),
@@ -116,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                             EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                       ),
                       child: Text(
-                        'Login',
+                        texts.login_button,
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
@@ -124,11 +128,11 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 16),
                     GestureDetector(
                       onTap: () {},
-                      child: Text('New User? Create Account'),
+                      child: Text(texts.login_new_user_label),
                     ),
                     SizedBox(
                         height: MediaQuery.of(context).viewInsets.bottom +
-                            20), // Espacio dinámico para el teclado
+                            20),
                   ],
                 ),
               ),

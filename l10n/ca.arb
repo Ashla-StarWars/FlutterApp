@@ -1,4 +1,34 @@
 {
     "@@locale": "ca",
-    "slogan": "Tot és un widget"
+    "slogan": "Tot és un widget",
+
+    "login_user": "Usuari",
+    "login_password": "Contrasenya",
+    "login_button": "Inicia sessió",
+    "login_error": "Usuari o contrasenya incorrectes",
+    "login_new_user_label": "Nou usuari? Crea un compte",
+    "login_forgot_password": "Has oblidat la teva contrasenya?",
+    "login_password_short_error": "La contrasenya ha de tenir almenys 6 caràcters",
+    "login_password_empty_error": "La contrasenya no pot estar buida",
+    "login_user_empty_error": "L'usuari no pot estar buit",
+    "login_invalid_credentials": "Credencials incorrectes",
+
+    "welcome_title": "Benvingut/da",
+
+    "confirm_delete_city_title": "Confirma l'eliminació",
+    "confirm_delete_city_message": "Estàs segur que vols eliminar aquesta ciutat?",
+    "confirm_delete_city_yes": "Eliminar",
+    "confirm_delete_city_no": "Cancel·lar",
+
+    "drawer_settings" : "C O N F I G U R A C I Ó",
+    "drawer_home" : "I N I C I",
+    "drawer_about" : "S O B R E  N O S A L T R E S",
+    "drawer_logout" : "T A N C A R   S E S S I Ó",
+    "drawer_language" : "I D I O M A",
+    "drawer_theme" : "T E M A",
+
+    "logout_confirmation_title": "Tancar sessió",
+    "logout_confirmation_message": "Estàs segur que vols tancar sessió?",
+    "logout_confirmation_yes": "Sí",
+    "logout_confirmation_no": "No"
 }

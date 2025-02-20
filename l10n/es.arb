@@ -13,10 +13,22 @@
     "login_user_empty_error": "El usuario no puede estar vacío",
     "login_invalid_credentials": "Credenciales incorrectas",
 
-    "welcome_title": "Bienvenido",
+    "welcome_title": "Bienvenid@",
 
     "confirm_delete_city_title" : "Confirmar eliminación",
     "confirm_delete_city_message" : "¿Estás seguro de que deseas eliminar esta ciudad?",
     "confirm_delete_city_yes" : "Eliminar",
     "confirm_delete_city_no" : "Cancelar",
+
+    "drawer_settings" : "C O N F I G U R A C I Ó N",
+    "drawer_home" : "I N I C I O",
+    "drawer_about" : "A C E R C A   D E",
+    "drawer_logout" : "C E R R A R   S E S I Ó N",
+    "drawer_language" : "I D I O M A",
+    "drawer_theme" : "T E M A",
+
+    "logout_confirmation_title": "Cerrar sesión",
+    "logout_confirmation_message": "¿Estás seguro de que deseas cerrar sesión?",
+    "logout_confirmation_yes": "Sí",
+    "logout_confirmation_no": "No"
 }

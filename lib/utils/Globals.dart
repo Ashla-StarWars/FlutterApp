@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 List<Map<String, String>> cities = [
     {
       'name': 'Barcelona',
@@ -97,3 +99,13 @@ List<Map<String, String>> cities = [
     },
   ];
 
+
+
+
+  class Globals {
+    static ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.system);
+    static ValueNotifier<Locale> localeNotifier = ValueNotifier(Locale('en'));
+    static void changeLocale(Locale newLocale) {
+      localeNotifier.value = newLocale;
+    }
+  }
