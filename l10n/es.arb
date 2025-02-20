@@ -30,5 +30,11 @@
     "logout_confirmation_title": "Cerrar sesión",
     "logout_confirmation_message": "¿Estás seguro de que deseas cerrar sesión?",
     "logout_confirmation_yes": "Sí",
-    "logout_confirmation_no": "No"
+    "logout_confirmation_no": "No",
+
+    "language_selection_title": "Seleccionar idioma",
+    "language_selection_message": "Selecciona el idioma de la aplicación",
+    "language_selection_spanish": "Español",
+    "language_selection_catalan": "Catalán",
+    "language_selection_english": "Inglés"
 }

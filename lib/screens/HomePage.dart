@@ -78,12 +78,12 @@ ListTile(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("texts.language_selection_title"), // Sin comillas
+          title: Text(texts.language_selection_title), // Sin comillas
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text('English'),
+                title: Text(texts.language_selection_english),
                 onTap: () {
                   Provider.of<LocaleProvider>(context, listen: false)
                       .setLocale(const Locale('en', 'US'));
@@ -91,7 +91,7 @@ ListTile(
                 },
               ),
               ListTile(
-                title: Text('Español'),
+                title: Text(texts.language_selection_spanish),
                 onTap: () {
                   Provider.of<LocaleProvider>(context, listen: false)
                       .setLocale(const Locale('es', 'ES'));
@@ -99,7 +99,7 @@ ListTile(
                 },
               ),
               ListTile(
-                title: Text('Català'),
+                title: Text(texts.language_selection_catalan),
                 onTap: () {
                   Provider.of<LocaleProvider>(context, listen: false)
                       .setLocale(const Locale('ca', 'ES'));

@@ -30,6 +30,11 @@
     "logout_confirmation_title": "Log out",
     "logout_confirmation_message": "Are you sure you want to log out?",
     "logout_confirmation_yes": "Yes",
-    "logout_confirmation_no": "No"
-    
+    "logout_confirmation_no": "No",
+
+    "language_selection_title": "Select language",
+    "language_selection_message": "Select the application language",
+    "language_selection_spanish": "Spanish",
+    "language_selection_catalan": "Catalan",
+    "language_selection_english": "English"
 }
