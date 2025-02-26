@@ -14,7 +14,8 @@ Map<String, Widget Function(BuildContext)> get appRoutes {
       return HomePage(username: username);
     },
     Routes.city: (context) {
-      final city = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+      final city =
+          ModalRoute.of(context)!.settings.arguments as Map<String, String>;
       return CityDetailPage(city: city);
     }
   };

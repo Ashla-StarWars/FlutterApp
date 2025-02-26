@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
             arguments: _usernameController.text,
           );
         } else {
-          _errorMessage = 'Credenciales incorrectas';
+          _errorMessage = AppLocalizations.of(context)!.login_error;
         }
       });
     }
@@ -33,9 +33,9 @@ class _LoginPageState extends State<LoginPage> {
 
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'La contraseña no puede estar vacía';
+      return AppLocalizations.of(context)!.login_password_empty_error;
     } else if (value.length < 7) {
-      return 'La contraseña debe tener al menos 7 caracteres';
+      return AppLocalizations.of(context)!.login_password_short_error;
     } else if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)').hasMatch(value)) {
       return 'Debe contener letras y números';
     }
@@ -44,7 +44,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-
     final texts = AppLocalizations.of(context);
 
     return Scaffold(
@@ -131,8 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(texts.login_new_user_label),
                     ),
                     SizedBox(
-                        height: MediaQuery.of(context).viewInsets.bottom +
-                            20),
+                        height: MediaQuery.of(context).viewInsets.bottom + 20),
                   ],
                 ),
               ),

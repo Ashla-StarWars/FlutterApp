@@ -21,7 +21,6 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-
     final texts = AppLocalizations.of(context);
 
     return Scaffold(

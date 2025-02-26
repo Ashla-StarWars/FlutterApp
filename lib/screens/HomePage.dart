@@ -68,52 +68,55 @@ class _HomePageState extends State<HomePage> {
               },
             ),
 
-ListTile(
-  leading: Icon(Icons.language),
-  iconColor: Theme.of(context).colorScheme.onSurface,
-  textColor: Theme.of(context).colorScheme.onSurface,
-  title: Text(texts.drawer_language),
-  onTap: () {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(texts.language_selection_title), // Sin comillas
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: Text(texts.language_selection_english),
-                onTap: () {
-                  Provider.of<LocaleProvider>(context, listen: false)
-                      .setLocale(const Locale('en', 'US'));
-                  Navigator.of(context).pop();
-                },
-              ),
-              ListTile(
-                title: Text(texts.language_selection_spanish),
-                onTap: () {
-                  Provider.of<LocaleProvider>(context, listen: false)
-                      .setLocale(const Locale('es', 'ES'));
-                  Navigator.of(context).pop();
-                },
-              ),
-              ListTile(
-                title: Text(texts.language_selection_catalan),
-                onTap: () {
-                  Provider.of<LocaleProvider>(context, listen: false)
-                      .setLocale(const Locale('ca', 'ES'));
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  },
-),
-
+            ListTile(
+              leading: Icon(Icons.language),
+              iconColor: Theme.of(context).colorScheme.onSurface,
+              textColor: Theme.of(context).colorScheme.onSurface,
+              title: Text(texts.drawer_language),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title:
+                          Text(texts.language_selection_title), // Sin comillas
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ListTile(
+                            title: Text(texts.language_selection_english),
+                            onTap: () {
+                              Provider.of<LocaleProvider>(context,
+                                      listen: false)
+                                  .setLocale(const Locale('en', 'US'));
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          ListTile(
+                            title: Text(texts.language_selection_spanish),
+                            onTap: () {
+                              Provider.of<LocaleProvider>(context,
+                                      listen: false)
+                                  .setLocale(const Locale('es', 'ES'));
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          ListTile(
+                            title: Text(texts.language_selection_catalan),
+                            onTap: () {
+                              Provider.of<LocaleProvider>(context,
+                                      listen: false)
+                                  .setLocale(const Locale('ca', 'ES'));
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
 
             ListTile(
               leading: Icon(

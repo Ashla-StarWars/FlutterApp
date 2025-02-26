@@ -7,9 +7,8 @@ class CityDetailPage extends StatelessWidget {
   const CityDetailPage({super.key, required this.city});
   @override
   Widget build(BuildContext context) {
-
     final texts = AppLocalizations.of(context);
-    
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
@@ -48,8 +47,7 @@ class CityDetailPage extends StatelessWidget {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           title: Text(texts!.confirm_delete_city_title),
-                          content: Text(
-                              texts.confirm_delete_city_message),
+                          content: Text(texts.confirm_delete_city_message),
                           actions: [
                             TextButton(
                               onPressed: () {
@@ -73,10 +71,7 @@ class CityDetailPage extends StatelessWidget {
                   },
                   style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
-                          Theme.of(context)
-                              .colorScheme
-                              .primary)
-                      ),
+                          Theme.of(context).colorScheme.primary)),
                   child: Icon(Icons.delete, size: 24, color: Colors.red),
                 ),
               ],
