@@ -36,5 +36,18 @@
     "language_selection_message": "Select the application language",
     "language_selection_spanish": "Spanish",
     "language_selection_catalan": "Catalan",
-    "language_selection_english": "English"
+    "language_selection_english": "English",
+
+    "shop_search": "Search",
+    "shop_slogan": "Everyone flies... some fly longer than others.",
+    "shop_see_all": "See all",
+    "shop_category_hot_picks": "Hot picks",
+    "shop_category_top_sales": "Top sales",
+    "shop_category_most_viewed": "Most viewed",
+
+    "bottom_bar_cities_option": "Cities",
+    "bottom_bar_shop_option": "Shop",
+
+    "shop_product_detail_created_at": "Created at",
+    "shop_product_detail_buy_now_button": "Buy Now"
 }

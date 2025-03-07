@@ -36,5 +36,18 @@
     "language_selection_message": "Selecciona l'idioma de l'aplicació",
     "language_selection_spanish": "Espanyol",
     "language_selection_catalan": "Català",
-    "language_selection_english": "Anglès"
+    "language_selection_english": "Anglès",
+
+    "shop_search": "Busca",
+    "shop_slogan": "Tothom vola... alguns volen més temps que altres.",
+    "shop_see_all": "Veure-ho tot",
+    "shop_category_hot_picks": "Destacats",
+    "shop_category_top_sales": "Més venuts",
+    "shop_category_most_viewed": "Més vistos",
+
+    "bottom_bar_cities_option": "Ciutats",
+    "bottom_bar_shop_option": "Tenda",
+
+    "shop_product_detail_created_at": "Creat el",
+    "shop_product_detail_buy_now_button": "Compra Ara"
 }

@@ -36,5 +36,18 @@
     "language_selection_message": "Selecciona el idioma de la aplicación",
     "language_selection_spanish": "Español",
     "language_selection_catalan": "Catalán",
-    "language_selection_english": "Inglés"
+    "language_selection_english": "Inglés",
+
+    "shop_search": "Buscar",
+    "shop_slogan": "Todo el mundo vuela... algunos vuelan más tiempo que otros.",
+    "shop_see_all": "Ver todo",
+    "shop_category_hot_picks": "Destacados",
+    "shop_category_top_sales": "Más vendidos",
+    "shop_category_most_viewed": "Más vistos",
+
+    "bottom_bar_cities_option": "Ciudades",
+    "bottom_bar_shop_option": "Tienda",
+
+    "shop_product_detail_created_at": "Creado el",
+    "shop_product_detail_buy_now_button": "Compra Ahora"
 }

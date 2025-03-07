@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/models/shoe.dart';
 
 List<Map<String, String>> cities = [
   {
@@ -97,6 +98,97 @@ List<Map<String, String>> cities = [
     'image':
         'https://upload.wikimedia.org/wikipedia/commons/0/0c/1_toledo_spain_evening_sunset_2014.jpg'
   },
+];
+
+List<Shoe> shoes = [
+  Shoe(
+    name: 'Nike Air Max 90 Classic',
+    price: 159.99,
+    imagePath: 'lib/images/shoe1.png',
+    description:
+        'El Nike Air Max 90 Classic es una reinterpretación moderna de un clásico, con un diseño icónico y amortiguación Air visible, ofreciendo estilo y comodidad para el uso diario.',
+    createdAt: DateTime(2023, 1, 1),
+  ),
+  Shoe(
+    name: 'Adidas Ultraboost Performance',
+    price: 179.99,
+    imagePath: 'lib/images/shoe2.png',
+    description:
+        'El Adidas Ultraboost Performance es un zapato de running conocido por su amortiguación receptiva y ajuste cómodo. Presenta una parte superior Primeknit y una entresuela Boost para una sensación ligera y de soporte.',
+    createdAt: DateTime(2023, 2, 1),
+  ),
+  Shoe(
+    name: 'New Balance 990v5 Premium',
+    price: 174.99,
+    imagePath: 'lib/images/shoe3.png',
+    description:
+        'El New Balance 990v5 Premium es un zapato versátil que ofrece una mezcla de estilo y rendimiento. Con sus materiales de primera calidad y diseño clásico, es una adición atemporal a cualquier guardarropa.',
+    createdAt: DateTime(2023, 3, 1),
+  ),
+  Shoe(
+    name: 'Asics Gel-Lyte III Retro',
+    price: 119.99,
+    imagePath: 'lib/images/shoe4.png',
+    description:
+        'El Asics Gel-Lyte III Retro es un zapato inspirado en el estilo retro que combina estilo y comodidad. Con su diseño de lengua dividida y amortiguación Gel, ofrece un aspecto y sensación únicos que destacan entre la multitud.',
+    createdAt: DateTime(2023, 4, 1),
+  ),
+  Shoe(
+    name: 'Puma RS-X Bold',
+    price: 129.99,
+    imagePath: 'lib/images/shoe5.png',
+    description:
+        'El Puma RS-X Bold es un zapato moderno que se inspira en el archivo de zapatos para correr retro de la marca. Con su silueta voluminosa y colores llamativos, hace una declaración en las calles.',
+    createdAt: DateTime(2023, 5, 1),
+  ),
+  Shoe(
+    name: 'Nike Air Max 90 Evolution',
+    price: 159.99,
+    imagePath: 'lib/images/shoe1.png',
+    description:
+        'El Nike Air Max 90 Evolution es una evolución del clásico, con un diseño icónico y amortiguación Air visible. Ofrece tanto estilo como comodidad para el uso diario.',
+    createdAt: DateTime(2023, 6, 1),
+  ),
+  Shoe(
+    name: 'Adidas Ultraboost Elite',
+    price: 179.99,
+    imagePath: 'lib/images/shoe2.png',
+    description:
+        'El Adidas Ultraboost Elite es un zapato de running popular conocido por su amortiguación receptiva y ajuste cómodo. Presenta una parte superior Primeknit y una entresuela Boost para una sensación ligera y de soporte.',
+    createdAt: DateTime(2023, 7, 1),
+  ),
+  Shoe(
+    name: 'New Balance 990v5 Heritage',
+    price: 174.99,
+    imagePath: 'lib/images/shoe3.png',
+    description:
+        'El New Balance 990v5 Heritage es un zapato versátil que ofrece una mezcla de estilo y rendimiento. Con sus materiales de primera calidad y diseño clásico, es una adición atemporal a cualquier guardarropa.',
+    createdAt: DateTime(2023, 8, 1),
+  ),
+  Shoe(
+    name: 'Asics Gel-Lyte III Heritage',
+    price: 119.99,
+    imagePath: 'lib/images/shoe4.png',
+    description:
+        'El Asics Gel-Lyte III Heritage es un zapato inspirado en el estilo retro que combina estilo y comodidad. Con su diseño de lengua dividida y amortiguación Gel, ofrece un aspecto y sensación únicos que destacan entre la multitud.',
+    createdAt: DateTime(2023, 9, 1),
+  ),
+  Shoe(
+    name: 'Puma RS-X Vintage',
+    price: 129.99,
+    imagePath: 'lib/images/shoe5.png',
+    description:
+        'El Puma RS-X Vintage es un zapato moderno que se inspira en el archivo de zapatos para correr retro de la marca. Con su silueta voluminosa y colores llamativos, hace una declaración en las calles.',
+    createdAt: DateTime(2023, 10, 1),
+  ),
+  Shoe(
+    name: 'Nike Air Max 90 Fusion',
+    price: 159.99,
+    imagePath: 'lib/images/shoe1.png',
+    description:
+        'El Nike Air Max 90 Fusion es una fusión del clásico, con un diseño icónico y amortiguación Air visible. Ofrece tanto estilo como comodidad para el uso diario.',
+    createdAt: DateTime(2023, 11, 1),
+  ),
 ];
 
 class Globals {

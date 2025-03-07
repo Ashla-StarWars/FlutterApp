@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/navigation/routes.dart';
 import 'package:flutter_app/providers/locale_provider.dart';
+import 'package:flutter_app/screens/ShopPage.dart';
 import 'package:flutter_app/utils/Globals.dart';
 import 'package:flutter_gen/gen_l10n/app_local.dart';
 import 'package:provider/provider.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
   final String username;
@@ -15,6 +17,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _cartCount = 0;
+  int _selectedIndex = 0;
+
+  void _addToCart() {
+    print('Added to cart!');
+    setState(() {
+      _cartCount++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final texts = AppLocalizations.of(context);
@@ -24,18 +36,52 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('${texts!.welcome_title}, ${widget.username}!'),
         backgroundColor: Theme.of(context).colorScheme.surface,
+        actions: [
+          Stack(
+            children: [
+              IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () {},
+              ),
+              if (_cartCount > 0)
+                Positioned(
+                  right: 11,
+                  top: 11,
+                  child: Container(
+                    padding: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    constraints: BoxConstraints(
+                      minWidth: 14,
+                      minHeight: 14,
+                    ),
+                    child: Text(
+                      '$_cartCount',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 8,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ],
       ),
       drawer: Drawer(
         backgroundColor: Theme.of(context).colorScheme.surface,
         child: Column(
           children: [
             DrawerHeader(
-                child: Icon(
-              Icons.shopify,
-              size: 80,
-              color: Theme.of(context).colorScheme.onSurface,
-            )),
-
+                child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Theme.of(context).colorScheme.onSurface,
+                      BlendMode.srcATop,
+                    ),
+                    child: Image.asset('lib/images/nike.png'))),
             //HOME PAGE LIST TILE
             ListTile(
               leading: Icon(Icons.home),
@@ -177,43 +223,86 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: ListView.builder(
-        itemCount: cities.length,
-        itemBuilder: (context, index) {
-          return Container(
-            color: Theme.of(context).colorScheme.surface,
-            child: Card(
-              color: Theme.of(context).colorScheme.primary,
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-              child: ListTile(
-                  leading: Hero(
-                    tag: cities[index]['image']!,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Image.network(
-                        cities[index]['image']!,
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: [
+          ListView.builder(
+            itemCount: cities.length,
+            itemBuilder: (context, index) {
+              return Container(
+                color: Theme.of(context).colorScheme.surface,
+                child: Card(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  child: ListTile(
+                    leading: Hero(
+                      tag: cities[index]['image']!,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Image.network(
+                          cities[index]['image']!,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
+                    title: Text(cities[index]['name']!),
+                    subtitle: Text('Población: ${cities[index]['population']}'),
+                    onTap: () async {
+                      final result = await Navigator.pushNamed(
+                        context,
+                        '/city',
+                        arguments: cities[index],
+                      );
+                      if (result == true) {
+                        setState(
+                            () {}); // Recargar la lista si se eliminó una ciudad
+                      }
+                    },
                   ),
-                  title: Text(cities[index]['name']!),
-                  subtitle: Text('Población: ${cities[index]['population']}'),
-                  onTap: () async {
-                    final result = await Navigator.pushNamed(
-                      context,
-                      Routes.city,
-                      arguments: cities[index],
-                    );
-                    if (result == true) {
-                      setState(
-                          () {}); // Recargar la lista si se eliminó una ciudad
-                    }
-                  }),
-            ),
-          );
-        },
+                ),
+              );
+            },
+          ),
+          ShopPage(
+            onTap: _addToCart,
+          ),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        color: Theme.of(context).colorScheme.surface,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+          child: GNav(
+            gap: 8,
+            activeColor: Theme.of(context).colorScheme.onSurface,
+            color: Colors.grey[700],
+            iconSize: 24,
+            mainAxisAlignment: MainAxisAlignment.center,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            duration: Duration(milliseconds: 400),
+            tabActiveBorder: Border.all(color: Colors.white),
+            tabBackgroundColor: Colors.grey.shade500,
+            tabBorderRadius: 16,
+            tabs: [
+              GButton(
+                icon: Icons.location_city,
+                text: texts.bottom_bar_cities_option,
+              ),
+              GButton(
+                icon: Icons.shop,
+                text: texts.bottom_bar_shop_option,
+              ),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+          ),
+        ),
       ),
     );
   }

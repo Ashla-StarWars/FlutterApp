@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LocaleProvider extends ChangeNotifier {
-  Locale _locale = const Locale('en', 'US'); // Idioma predeterminado
+  Locale _locale;
+
+  LocaleProvider() : _locale = WidgetsBinding.instance.window.locale;
 
   Locale get locale => _locale;
 

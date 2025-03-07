@@ -27,9 +27,9 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: Theme.of(context).colorScheme.surface, // Fondo dinámico
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(),
+            Spacer(),
             Hero(
               tag: 'appLogo',
               child: Image.network(
@@ -38,14 +38,14 @@ class _SplashPageState extends State<SplashPage> {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
-            const SizedBox(height: 40), // Espaciado entre el logo y el texto
+            SizedBox(height: 40), // Espaciado entre el logo y el texto
             Text(
               texts!.slogan,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const Spacer(),
-            const CircularProgressIndicator(),
-            const SizedBox(height: 10),
+            Spacer(),
+            CircularProgressIndicator(),
+            SizedBox(height: 10),
           ],
         ),
       ),

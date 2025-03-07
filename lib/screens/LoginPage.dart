@@ -93,7 +93,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       validator: _validatePassword,
                     ),
-                    SizedBox(height: 12),
                     if (_errorMessage != null)
                       Text(
                         _errorMessage!,
@@ -101,9 +100,12 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: TextButton(
+                        child: TextButton(
                         onPressed: () {},
-                        child: Text(texts.login_forgot_password),
+                        child: Text(
+                          texts.login_forgot_password,
+                          style: TextStyle(color: Colors.blue),
+                        ),
                       ),
                     ),
                     SizedBox(height: 12),
